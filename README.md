@@ -10,6 +10,8 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 3. An [Steam-Web-API-Key](https://steamcommunity.com/dev/apikey) (free to obtain)
 
 ## Setup
+
+### Prepare the server and enable the script
 1. Upload server_status.js to the /scripts directory located in the root folder of your Sinusbot installation.
 2. Restart Sinusbot via SSH.
 3. In the Sinusbot Admin Interface, navigate to Settings -> Scripts and locate **Steam Game Server Status**.
