@@ -9,7 +9,7 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 2. Access to your remote server (via FTP, SSH, etc.)
 3. An [Steam-Web-API-Key](https://steamcommunity.com/dev/apikey) (free to obtain)
 
-### Setup
+## Setup
 1. Upload server_status.js to the /scripts directory located in the root folder of your Sinusbot installation.
 2. Restart Sinusbot via SSH.
 3. In the Sinusbot Admin Interface, navigate to Settings -> Scripts and locate **Steam Game Server Status**.
@@ -22,10 +22,17 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 3. Click Add, then enter: Game Name, the Server Information (IP & Port) and the channel where the info should be displayed.
 4. Click Save Changes at the bottom of the page.
 
-### Info
-The server must be visible in the Steam Server Browser to be detected.
 
-### Coming up next
-- Multi-language support
-- Support for additional game server types beyond Steam
+> [!IMPORTANT]
+> The server must be visible in the Steam Server Browser to be detected.
+
+If everything is set up correctly, your channel name should update after the specified interval and look something like this
+
+![Example display of the channels.](http://185.230.163.154/uploads/done.png)
+
+You're done! :partying_face:
+
+## Coming up next
+- [ ] Multi-language support
+- [ ] Support for additional game server types beyond Steam
 
