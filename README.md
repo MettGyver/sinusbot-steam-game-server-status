@@ -1,6 +1,6 @@
 # Steam Game Server Status for Sinusbot (Teamspeak)
 
-A small script for [Sinusbot](https://github.com/SinusBot) to display the status of Steam game servers in the channel name of a specific channels.
+A small script for [Sinusbot](https://github.com/SinusBot) to display the status of Steam game servers in the channel name of a specific channel.
 
 ## Installation
 
