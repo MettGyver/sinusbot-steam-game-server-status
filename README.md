@@ -20,13 +20,14 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 
 ### Prepare the server and enable the script
 1. Open the config.ini file in the root folder of your Sinusbot installation and add
+   
    ```
    [Scripts.Privileges]
    ServerQuery = ["net"]
    ```
-2. Upload server_status.js to the /scripts directory.
-3. Restart Sinusbot via SSH.
-4. In the Sinusbot Admin Interface, navigate to Settings -> Scripts and locate **Steam Game Server Status** and check the checkbox next to the script name.
+3. Upload server_status.js to the /scripts directory.
+4. Restart Sinusbot via SSH.
+5. In the Sinusbot Admin Interface, navigate to Settings -> Scripts and locate **Steam Game Server Status** and check the checkbox next to the script name.
 6. Click Save Changes at the bottom of the page.
 
 ### Configure and add Servers
