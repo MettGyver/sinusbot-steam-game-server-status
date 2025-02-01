@@ -144,7 +144,7 @@ registerPlugin({
     function updateChannel(id, servers, game) {
         const channel = backend.getChannelByID(id);
         if (servers.length > 0) {
-            channel.update({ name: game + ' | Online (' + servers[0]["players"] + '/' + servers[0]["max_players"] + ' Spieler)', description: "Serverstatus: [color=green]Online[/color]" });
+            channel.update({ name: game + ' | Online (' + servers[0]["players"] + '/' + servers[0]["max_players"] + ' Players)', description: "Serverstatus: [color=green]Online[/color]" });
         } else {
             channel.update({ name: game + ' | Offline', description: "Serverstatus: [color=red]Offline[/color]" });
         }
