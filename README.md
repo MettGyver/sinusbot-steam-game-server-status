@@ -49,4 +49,5 @@ You're done! :partying_face:
 ## Coming up next
 - [ ] Automatic Multi-language support
 - [ ] Support for additional game server types beyond Steam
+- [ ] The ability to customize the output of the server status.
 
