@@ -24,7 +24,7 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 ### Configure and add Servers
 1. In the Admin Interface, open the script settings by clicking the small arrow next to **Steam Game Server Status**.
 2. Enter the Steam Web API Key you obtained earlier.
-3. Click Add, then enter: Game Name, the Server Information (IP & Port) and the channel where the info should be displayed.
+3. Click Add, then enter: Game Name, the Server Information (IP & Port) and select the channel where the info should be displayed.
 4. Click Save Changes at the bottom of the page.
 
 
