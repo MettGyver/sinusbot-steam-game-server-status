@@ -3,7 +3,7 @@
 A small script for [Sinusbot](https://github.com/SinusBot) to display the status of Steam game servers in the channel name of a specific channel.
 
 > [!NOTE]
-> Only works with TeamSpeak 3, not with Discord.
+> Supports only TeamSpeak 3, not Discord.
 
 ## Installation
 
@@ -11,6 +11,10 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 1. SinusBot 1.0.2 (should also work on older versions)
 2. Access to your remote server (via FTP, SSH, etc.)
 3. An [Steam-Web-API-Key](https://steamcommunity.com/dev/apikey) (free to obtain)
+
+> [!TIP]
+> A list of supported games can be found [here](https://developer.valvesoftware.com/wiki/Dedicated_Servers_List).
+
 
 ## Setup
 
