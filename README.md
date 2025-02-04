@@ -55,7 +55,7 @@ With version 1.1.0, you now have the option to customize how the channel name an
 | Placeholder | Description |
 | --- | --- |
 | `/n` | Displays the name of the server|
-| `/i` | Displays the IP-Adress |
+| `/i` | Displays the IP Address and Port|
 | `/g` | Displays the game |
 | `/m` | Displays the current Map |
 | `/p` | Displays the current number of connected players. |
