@@ -1,5 +1,5 @@
 registerPlugin({
-    name: 'Steam Game Server Status via API_TESTBUILD',
+    name: 'Steam Game Server Status',
     version: '1.1.0',
     description: 'Displays the server status of Steam game servers in the channel name.',
     author: 'Julian Ziesche',
