@@ -46,3 +46,6 @@ You're done! :partying_face:
 - [ ] The ability to customize the output of the server status.
 - [ ] The possibility to use UDP Querys instead of an API
 
+# Server Info Templating
+## WIP
+
