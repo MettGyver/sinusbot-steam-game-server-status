@@ -51,6 +51,17 @@ You're done! :partying_face:
 
 With version 1.1.0, you now have the option to customize how the channel name and description appear. In the table below, you'll find the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will show the classic formatting. To enable the fallback, it is essential to include something in the Game Name field (**Configure and Add Servers** - Step 3).
 
+### Available Placeholders
+| Placeholder | Description |
+| --- | --- |
+| `/n` | Displays the name of the server|
+| `/i` | Displays the IP-Adress |
+| `/g` | Displays the game |
+| `/m` | Displays the current Map |
+| `/p` | Displays the current number of connected players. |
+| `/q` | Displays the available player slots. |
+
+
 ### Some examples how your formatting could look like
 
 ***Channel name***
@@ -70,14 +81,4 @@ Spielname: /g
 ```
 **As seen in the example above, you can use placeholder tags, and also make use of BBCode, as TeamSpeak supports it.**
 
-
-### Available Placeholders
-| Placeholder | Description |
-| --- | --- |
-| `/n` | Displays the name of the server|
-| `/i` | Displays the IP-Adress |
-| `/g` | Displays the game |
-| `/m` | Displays the current Map |
-| `/p` | Displays the current number of connected players. |
-| `/q` | Displays the available player slots. |
-
+![maxresdefault](https://github.com/user-attachments/assets/a9f5b097-7afa-4cc5-ba43-2c625958248d)
