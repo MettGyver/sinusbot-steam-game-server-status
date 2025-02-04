@@ -26,9 +26,9 @@ A small script for [Sinusbot](https://github.com/SinusBot) to display the status
 
 ### Configure and add Servers
 1. In the Admin Interface, open the script settings by clicking the small arrow next to **Steam Game Server Status**.
-2. Enter the Steam Web API Key you obtained earlier.
-3. Click Add, then enter: Game Name, the Server Information (IP & Port) and select the channel where the info should be displayed.
-4. Click Save Changes at the bottom of the page.
+2. Enter your preferred update interval in minutes and the Steam Web API key you obtained earlier.
+3. Click 'Add', then enter the game name, the channel name and description with [placeholders](#Server-Info-Templating), provide the server information (IP & Port) and select the channel where the information should be displayed.
+4. Click 'Save Changes' at the bottom of the page.
 
 
 > [!IMPORTANT]
@@ -43,9 +43,38 @@ You're done! :partying_face:
 ## Coming up next
 - [ ] Automatic Multi-language support
 - [ ] Support for additional game server types beyond Steam
-- [ ] The ability to customize the output of the server status.
+- [x] The ability to customize the output of the server status.
 - [ ] The possibility to use UDP Querys instead of an API
 
 # Server Info Templating
 ## WIP
+
+With version 1.1.0, you now have the option to customize how the channel name and description appear. In the table below, you'll find the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will show the classic formatting. To enable the fallback, it is essential to include something in the Game Name field (**Configure and Add Servers** - Step 3).
+
+***Some examples how your formatting could look like***
+
+<ins>Channel name</ins>
+`/g| (/p//q Online)`
+**This displays the game name along with the current player count and available player slots.**
+
+
+<ins>Channel description</ins>
+```
+Servername: /n
+Serverstatus: [color=green]Online[/color]
+[color=yellow]IP-Adresse[/color]: /i
+Spieleranzahl:[color=green]/p//q[/color]
+Map: /m
+Spielname: /g
+```
+**As seen in the example above, you can use placeholder tags, and also make use of BBCode, as TeamSpeak supports it.**
+
+| Placeholder | Description |
+| --- | --- |
+| `/n` | Displays the name of the server|
+| `/i` | Displays the IP-Adress |
+| `/g` | Displays the game |
+| `/m` | Displays the current Map |
+| `/p` | Displays the current number of connected players. |
+| `/q` | Displays the available player slots. |
 
