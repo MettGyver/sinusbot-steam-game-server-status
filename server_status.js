@@ -1,6 +1,6 @@
 registerPlugin({
-    name: 'Steam Game Server Status',
-    version: '1.0',
+    name: 'Steam Game Server Status via API_TESTBUILD',
+    version: '1.1.0',
     description: 'Displays the server status of Steam game servers in the channel name.',
     author: 'Julian Ziesche',
     requiredModules: ['http'],
@@ -9,7 +9,7 @@ registerPlugin({
         title: 'Update interval in minutes',
         type: 'number',
         min: 1,
-        default: 5 // Standardwert auf 5 Minuten setzen
+        default: 5
     }, {
         name: 'steamWebAPIKey',
         title: 'Steam Web API Key',
@@ -21,10 +21,21 @@ registerPlugin({
         vars: [{
             name: 'gameName',
             title: 'Game name',
-            type: 'string'
+            type: 'string',
+            placeholder: 'Put in the Name of the Game. (recommended)',
+        }, {
+            name: 'channelName',
+            title: 'Channel name',
+            type: 'string',
+            placeholder: 'See github.com/MettGyver/sinusbot-steam-game-server-status for more Infos'
+        }, {
+            name: 'channelDesc',
+            title: 'Channel description',
+            type: 'multiline',
+            placeholder: 'See github.com/MettGyver/sinusbot-steam-game-server-status for more Infos'
         }, {
             name: 'channelID',
-            title: 'Channel ID where the status will be displayed',
+            title: 'Channel where the status will be displayed',
             type: 'channel'
         }, {
             name: 'serverIP',
@@ -50,6 +61,9 @@ registerPlugin({
     engine.log(serverList);
     engine.log("Plugin geladen!"); // Debug-Meldung
 
+    // Test Funktion, falls das Feld in den Optionen leer ist.
+
+
     function fetchServerStatus() {
         for (let i in serverList) {
             let server = serverList[i]; // Serverobjekt
@@ -59,14 +73,14 @@ registerPlugin({
                     if (ipAddress) {
                         engine.log("Hostname: " + server.serverIP + " aufgeloest in " + ipAddress);
                         getServerInfo(apiURLBuilder(ipAddress, server.serverPort, config.steamWebAPIKey), function (servers) {
-                            updateChannel(server.channelID, servers, server.gameName);
+                            updateChannel(server.channelID, servers, server.gameName, server.channelName, server.channelDesc);
                         });
                     }
 
                 });
             } else {
                 getServerInfo(apiURLBuilder(server.serverIP, server.serverPort, config.steamWebAPIKey), function (servers) {
-                    updateChannel(server.channelID, servers, server.gameName);
+                    updateChannel(server.channelID, servers, server.gameName, server.channelName, server.channelDesc);
                     engine.log(isDNS(server.serverIP));
                 });
             }
@@ -141,17 +155,33 @@ registerPlugin({
     }
 
     // Channel aktualisieren
-    function updateChannel(id, servers, game) {
+    function updateChannel(id, servers, game, channelName, channelDesc) {
         const channel = backend.getChannelByID(id);
         if (servers.length > 0) {
-            channel.update({ name: game + ' | Online (' + servers[0]["players"] + '/' + servers[0]["max_players"] + ' Players)', description: "Serverstatus: [color=green]Online[/color]" });
+            if (!channelName) {
+                channel.update({ name: game + ' | Online (' + servers[0]["players"] + '/' + servers[0]["max_players"] + ' Players)', description: "Serverstatus: [color=green]Online[/color]" });
+            } else {
+                channel.update({ name: formatMessage(channelName, servers), description: formatMessage(channelDesc, servers) });
+            }
+
         } else {
             channel.update({ name: game + ' | Offline', description: "Serverstatus: [color=red]Offline[/color]" });
+
         }
     }
 
     function apiURLBuilder(ip, port, key) {
         return "https://api.steampowered.com/IGameServersService/GetServerList/v1/?key=" + key + "&filter=addr\\" + ip + ":" + port;
+    }
+
+    function formatMessage(template, servers) {
+        return template
+            .replace(/\/p/g, servers[0]["players"])
+            .replace(/\/q/g, servers[0]["max_players"])
+            .replace(/\/i/g, servers[0]["addr"])
+            .replace(/\/n/g, servers[0]["name"])
+            .replace(/\/m/g, servers[0]["map"])
+            .replace(/\/g/g, servers[0]["product"]);
     }
 
 
