@@ -49,7 +49,7 @@ You're done! :partying_face:
 # Server Info Templating
 ## WIP
 
-With version 1.1.0, you now have the option to customize how the channel name and description appear. In the table below, you'll find the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will show the classic formatting. To enable the fallback, it is essential to include something in the Game Name field (**Configure and Add Servers** - Step 3).
+With version 1.1.0, you now have the option to customize how the channel name and description appear. In the table below, you'll find the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will show the classic formatting. To enable the fallback, it is essential to include something in the Game Name field (**[Configure and add Servers - Step 3](#Configure-and-add-Servers)**).
 
 ### Available Placeholders
 | Placeholder | Description |
