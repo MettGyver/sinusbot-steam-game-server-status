@@ -1,6 +1,6 @@
 registerPlugin({
-    name: 'Steam Game Server Status|pre',
-    version: '1.1.2',
+    name: 'Steam Game Server Status',
+    version: '1.1.3',
     description: 'Displays the server status of Steam game servers in the channel name.',
     author: 'Julian Ziesche',
     requiredModules: ['http'],
@@ -22,7 +22,7 @@ registerPlugin({
             name: 'gameName',
             title: 'Game name',
             type: 'string',
-            placeholder: 'Put in the Name of the Game. (recommended)',
+            placeholder: 'Put in the Name of the Game.',
         }, {
             name: 'channelName',
             title: 'Channel name',
@@ -160,19 +160,21 @@ registerPlugin({
 
         // Standardwerte setzen
         const isOnline = servers.length > 0;
-        const playerInfo = isOnline ? `(${servers[0]["players"]}/${servers[0]["max_players"]} Players)` : "";
+        const playerInfo = isOnline ? `(${servers[0]["players"]}/${servers[0]["max_players"]} Players)` : "(no connection!)";
         const statusColor = isOnline ? "green" : "red";
 
         // Fallback für game, falls leer → Nimm Server-Namen oder "Unknown Game"
-        const gameName = game || (servers.length > 0 ? servers[0]["name"] : "Unknown Game");
+        const gameName = game || (isOnline && servers.length > 0 ? servers[0]["name"] : "Unknown Game");
+
+        // || (isOnline ? servers[0]["name"] : "Unknown Game")
 
         // Standardname und -beschreibung
         const defaultName = `${gameName} | ${isOnline ? "Online" : "Offline"} ${playerInfo}`;
         const defaultDesc = `Serverstatus: [color=${statusColor}]${isOnline ? "Online" : "Offline"}[/color]`;
 
         // Falls channelName oder channelDesc angegeben sind, formatMessage nutzen
-        const name = channelName ? formatMessage(channelName, servers) : defaultName;
-        const desc = channelDesc ? formatMessage(channelDesc, servers) : defaultDesc;
+        const name = (channelName && servers.length > 0) ? formatMessage(channelName, servers) : defaultName;
+        const desc = (channelDesc && servers.length > 0) ? formatMessage(channelDesc, servers) : defaultDesc;
 
         // Channel aktualisieren
         channel.update({ name: name, description: desc });
