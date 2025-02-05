@@ -47,15 +47,14 @@ You're done! :partying_face:
 - [ ] The possibility to use UDP Querys instead of an API
 
 # Server Info Templating
-## WIP
 
-With version 1.1.0, you now have the option to customize how the channel name and description appear. In the table below, you'll find the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will show the classic formatting. To enable the fallback, it is essential to include something in the Game Name field (**[Configure and add Servers - Step 3](#Configure-and-add-Servers)**).
+As of version 1.1.0, you now have the option to customize how the channel name and description appear. The table below lists the placeholders you can use to display information about your server. If any fields are left empty, a fallback option will apply the classic formatting if a game name is specified (**[Configure and add Servers - Step 3](#Configure-and-add-Servers)**). Otherwise, it will show 'Unknown Game' if the server is offline.
 
 ### Available Placeholders
 | Placeholder | Description |
 | --- | --- |
 | `/n` | Displays the name of the server|
-| `/i` | Displays the IP Address and Port|
+| `/a` | Displays the IP Address and Port|
 | `/g` | Displays the game |
 | `/m` | Displays the current Map |
 | `/p` | Displays the current number of connected players. |
@@ -64,21 +63,21 @@ With version 1.1.0, you now have the option to customize how the channel name an
 
 ### Some examples how your formatting could look like
 
-***Channel name***
+***Channel name:***
 
 `/g | (/p//q Online)`
 **This displays the game name along with the current player count and available player slots.**
 
 
-***Channel description***
+***Channel description:***
 ```
 Servername: /n
 Serverstatus: [color=green]Online[/color]
-[color=yellow]IP-Adresse[/color]: /i
+[color=yellow]IP-Adresse[/color]: /a
 Spieleranzahl:[color=green]/p//q[/color]
 Map: /m
 Spielname: /g
 ```
-**As seen in the example above, you can use placeholder tags, and also make use of BBCode, as TeamSpeak supports it.**
+**As seen in the example above, you can use placeholder tags, and also make use of [BBCode](https://www.teamspeak3.com/support/teamspeak-3-bbcode-available-in-teamspeak.php), as TeamSpeak supports it.**
 
 ![maxresdefault](https://github.com/user-attachments/assets/a9f5b097-7afa-4cc5-ba43-2c625958248d)
