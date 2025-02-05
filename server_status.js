@@ -1,6 +1,6 @@
 registerPlugin({
-    name: 'Steam Game Server Status',
-    version: '1.1.0',
+    name: 'Steam Game Server Status|pre',
+    version: '1.1.2',
     description: 'Displays the server status of Steam game servers in the channel name.',
     author: 'Julian Ziesche',
     requiredModules: ['http'],
@@ -157,17 +157,25 @@ registerPlugin({
     // Channel aktualisieren
     function updateChannel(id, servers, game, channelName, channelDesc) {
         const channel = backend.getChannelByID(id);
-        if (servers.length > 0) {
-            if (!channelName) {
-                channel.update({ name: game + ' | Online (' + servers[0]["players"] + '/' + servers[0]["max_players"] + ' Players)', description: "Serverstatus: [color=green]Online[/color]" });
-            } else {
-                channel.update({ name: formatMessage(channelName, servers), description: formatMessage(channelDesc, servers) });
-            }
 
-        } else {
-            channel.update({ name: game + ' | Offline', description: "Serverstatus: [color=red]Offline[/color]" });
+        // Standardwerte setzen
+        const isOnline = servers.length > 0;
+        const playerInfo = isOnline ? `(${servers[0]["players"]}/${servers[0]["max_players"]} Players)` : "";
+        const statusColor = isOnline ? "green" : "red";
 
-        }
+        // Fallback für game, falls leer → Nimm Server-Namen oder "Unknown Game"
+        const gameName = game || (servers.length > 0 ? servers[0]["name"] : "Unknown Game");
+
+        // Standardname und -beschreibung
+        const defaultName = `${gameName} | ${isOnline ? "Online" : "Offline"} ${playerInfo}`;
+        const defaultDesc = `Serverstatus: [color=${statusColor}]${isOnline ? "Online" : "Offline"}[/color]`;
+
+        // Falls channelName oder channelDesc angegeben sind, formatMessage nutzen
+        const name = channelName ? formatMessage(channelName, servers) : defaultName;
+        const desc = channelDesc ? formatMessage(channelDesc, servers) : defaultDesc;
+
+        // Channel aktualisieren
+        channel.update({ name: name, description: desc });
     }
 
     function apiURLBuilder(ip, port, key) {
@@ -178,11 +186,10 @@ registerPlugin({
         return template
             .replace(/\/p/g, servers[0]["players"])
             .replace(/\/q/g, servers[0]["max_players"])
-            .replace(/\/i/g, servers[0]["addr"])
+            .replace(/\/a/g, servers[0]["addr"])
             .replace(/\/n/g, servers[0]["name"])
             .replace(/\/m/g, servers[0]["map"])
             .replace(/\/g/g, servers[0]["product"]);
     }
-
 
 });
