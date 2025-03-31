@@ -1,6 +1,6 @@
 registerPlugin({
     name: 'Steam Game Server Status',
-    version: '1.1.3',
+    version: '1.1.4',
     description: 'Displays the server status of Steam game servers in the channel name.',
     author: 'Julian Ziesche',
     requiredModules: ['http'],
