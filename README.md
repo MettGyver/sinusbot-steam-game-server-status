@@ -61,6 +61,9 @@ You're done! :partying_face:
 
 Starting with version 1.1.0, you can now customize how the channel name and description are displayed. The table below lists the available placeholders for incorporating server information. If the Channel Name field is left empty, a fallback mechanism will apply the classic formatting when a game name is provided (**[Configure and add Servers - Step 3](#Configure-and-add-Servers)**). Otherwise, if the server is offline, it will display 'Unknown Game.' The same fallback logic applies to the description.
 
+> [!IMPORTANT]
+> Make sure that the channel name does not exceed the maximum allowed character limit of TeamSpeak (40 characters).
+
 ### Available Placeholders
 | Placeholder | Description |
 | --- | --- |
