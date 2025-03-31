@@ -160,7 +160,7 @@ registerPlugin({
 
         // Standardwerte setzen
         const isOnline = servers.length > 0;
-        const playerInfo = isOnline ? `(${servers[0]["players"]}/${servers[0]["max_players"]} Players)` : "(no connection!)";
+        const playerInfo = isOnline ? `(${servers[0]["players"]}/${servers[0]["max_players"]} Players)` : "(N/C)";
         const statusColor = isOnline ? "green" : "red";
 
         // Fallback für game, falls leer → Nimm Server-Namen oder "Unknown Game"
