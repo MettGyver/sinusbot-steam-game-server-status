@@ -22,7 +22,7 @@ registerPlugin({
             name: 'gameName',
             title: 'Game name',
             type: 'string',
-            placeholder: 'Put in the Name of the Game.',
+            placeholder: 'Put in the Name of the Game. (Mandatory to ensure smooth operation.)',
         }, {
             name: 'channelName',
             title: 'Channel name',
@@ -193,5 +193,7 @@ registerPlugin({
             .replace(/\/m/g, servers[0]["map"])
             .replace(/\/g/g, servers[0]["product"]);
     }
+
+    //Add a rng 
 
 });
